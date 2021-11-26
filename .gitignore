@@ -13,3 +13,6 @@
 .externalNativeBuild
 .cxx
 local.properties
+./router-processor/build
+./router-annotations/build
+./router-runtime/build

@@ -1,0 +1,84 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.github.hikobe8",
+    "module": "router-processor",
+    "version": "0.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.5",
+      "buildId": "hqmdhstimjgnlj5xbcllneflwa"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api"
+      },
+      "files": [
+        {
+          "name": "router-processor-0.1.jar",
+          "url": "router-processor-0.1.jar",
+          "size": 4382,
+          "sha512": "a4695f14a13a9fc0b53ac6860523437ff97826715450ac94549e69550038c886959b80a8e33a18b7a9c068aef941763f17fe6d04b82aff7d642e700a776b4486",
+          "sha256": "d3c8761c0401b6e0c40522becda99bf1ee28807be272c1a7a7bae9c1cc837abd",
+          "sha1": "6709b0b466912f260fa31ca075841e18aa4a5ac6",
+          "md5": "43e3cf78b43fabab530af4c0ebad0635"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.github.hikobe8",
+          "module": "router-annotations",
+          "version": {
+            "requires": "0.1"
+          }
+        },
+        {
+          "group": "com.google.auto.service",
+          "module": "auto-service",
+          "version": {
+            "requires": "1.0-rc7"
+          }
+        },
+        {
+          "group": "com.google.code.gson",
+          "module": "gson",
+          "version": {
+            "requires": "2.8.5"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "router-processor-0.1.jar",
+          "url": "router-processor-0.1.jar",
+          "size": 4382,
+          "sha512": "a4695f14a13a9fc0b53ac6860523437ff97826715450ac94549e69550038c886959b80a8e33a18b7a9c068aef941763f17fe6d04b82aff7d642e700a776b4486",
+          "sha256": "d3c8761c0401b6e0c40522becda99bf1ee28807be272c1a7a7bae9c1cc837abd",
+          "sha1": "6709b0b466912f260fa31ca075841e18aa4a5ac6",
+          "md5": "43e3cf78b43fabab530af4c0ebad0635"
+        }
+      ]
+    }
+  ]
+}

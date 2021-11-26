@@ -5,14 +5,15 @@ targetCompatibility = JavaVersion.VERSION_1_8
 sourceCompatibility = JavaVersion.VERSION_1_8
 
 //apply from: rootProject.file('maven-publish.gradle')
-
-publishing {
-    publications {
-        maven(MavenPublication) {
-            groupId = 'com.github.hikobe8'
-            artifactId = 'router-annotations'
-            version = '0.1'
-            from components.java
+afterEvaluate {
+    publishing {
+        publications {
+            maven(MavenPublication) {
+                groupId = 'com.github.hikobe8'
+                artifactId = 'router-annotations'
+                version = '0.1'
+                from components.java
+            }
         }
     }
 }

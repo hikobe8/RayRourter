@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.ray.router.annotations.Destination;
 
+
 @Destination(
         url = "router://test",
         description = "测试页面"

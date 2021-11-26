@@ -1,2 +1,0 @@
-com/ray/router/annotations/Destination.java
- com.ray.router.annotations.Destination
