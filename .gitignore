@@ -13,6 +13,11 @@
 .externalNativeBuild
 .cxx
 local.properties
-./router-processor/build
-./router-annotations/build
-./router-runtime/build
+/router-processor/build
+/router-annotations/build
+/router-runtime/build
+/router_mapping
+/页面文档.md
+/buildSrc/build
+/router-gradle-plugin/build
+/repo

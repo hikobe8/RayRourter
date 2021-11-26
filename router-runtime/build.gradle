@@ -2,7 +2,7 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
 }
-
+apply plugin: 'maven-publish'
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -41,6 +41,19 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            maven(MavenPublication) {
+                groupId = 'com.github.hikobe8'
+                artifactId = 'router-runtime'
+                version = '0.1'
+                from components.release
+            }
+        }
+    }
 }
 
 //apply from: rootProject.file('maven-publish.gradle')
