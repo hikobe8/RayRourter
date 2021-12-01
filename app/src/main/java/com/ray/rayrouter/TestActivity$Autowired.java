@@ -1,5 +1,7 @@
 package com.ray.rayrouter;
 
+import android.content.Intent;
+
 import com.ray.biz_reading.ReadingActivity;
 
 /**
@@ -9,11 +11,12 @@ import com.ray.biz_reading.ReadingActivity;
  */
 public class TestActivity$Autowired {
 
-    public void inject(Object target){
-        ReadingActivity realTarget = (ReadingActivity)target;
-//        realTarget.argin = substitute.getIntent().getIntExtra("age", substitute.age);
-//        realTarget.argStr = substitute.getIntent().getStringExtra("name");
-//        realTarget.phone = (com.daddyno1.projectmoduledemo.bean.Phone) substitute.getIntent().getSerializableExtra("phone");
+    public void inject(Object target) {
+        ReadingActivity realTarget = (ReadingActivity) target;
+        Intent realTargetIntent = realTarget.getIntent();
+        realTarget.argInt = realTargetIntent.getIntExtra("argInt", -1);
+        realTarget.argStr = realTargetIntent.getStringExtra("argStr");
+        realTarget.argObj = realTargetIntent.getParcelableExtra("argObj");
     }
 
 }

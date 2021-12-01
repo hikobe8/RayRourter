@@ -11,14 +11,17 @@ import com.ray.router.annotations.Destination
 )
 class ReadingActivity : AppCompatActivity() {
 
+    @JvmField
     @Autowired
     var argStr: String? = null
 
+    @JvmField
     @Autowired
-    public var argInt = 0
+    var argInt = 0
 
+    @JvmField
     @Autowired
-    var argObj: Any? = null
+    var argObj: MyParcel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

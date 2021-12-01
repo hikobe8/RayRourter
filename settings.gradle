@@ -6,6 +6,6 @@ include(':router-annotations')
 include(':router-processor')
 include(':router-gradle-plugin')
 
-gradle.taskGraph.beforeTask { task ->
-    println("[all-task] -> ${task.name}")
-}
+//gradle.taskGraph.beforeTask { task ->
+//    println("[all-task] -> ${task.name}")
+//}
