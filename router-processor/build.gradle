@@ -15,7 +15,7 @@ afterEvaluate {
             maven(MavenPublication) {
                 groupId = 'com.github.hikobe8'
                 artifactId = 'router-processor'
-                version = '0.1'
+                version = jitpack.pubVersion
                 from components.java
             }
         }

@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ray.router.annotations.Destination;
+import com.ray.router.annotations.Autowired;
 
 
 @Destination(
@@ -15,6 +16,12 @@ import com.ray.router.annotations.Destination;
 )
 public class TestActivity extends AppCompatActivity {
 
+    @Autowired
+    String argStr;
+
+    @Autowired
+    int argInt;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +29,5 @@ public class TestActivity extends AppCompatActivity {
         String msg = getIntent().getExtras().getString("msg");
         TextView text = findViewById(R.id.text);
         text.setText("msg = " + msg);
-
     }
 }

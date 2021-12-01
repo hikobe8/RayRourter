@@ -28,9 +28,11 @@ task clean(type: Delete) {
 
 ext {
     versions = [
-            'minSdkVersion' : '21',
-            'targetSdkVersion' : '30',
-            'versionCode' : '1',
-            'versionName' : '1.0'
+            'minSdkVersion'   : '21',
+            'targetSdkVersion': '30',
+            'versionCode'     : '1',
+            'versionName'     : '1.0'
     ]
 }
+
+apply from: './jitpack.gradle'

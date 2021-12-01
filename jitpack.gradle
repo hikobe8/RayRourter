@@ -1,0 +1,6 @@
+ext {
+    jitpack = [
+            //jitpack 发布版本
+            'pubVersion': '0.2'
+    ]
+}

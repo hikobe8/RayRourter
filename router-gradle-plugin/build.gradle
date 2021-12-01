@@ -17,7 +17,7 @@ afterEvaluate {
             maven(MavenPublication) {
                 groupId = 'com.github.hikobe8'
                 artifactId = 'router-gradle-plugin'
-                version = '0.1'
+                version = versions.versionCode
                 from components.java
             }
         }

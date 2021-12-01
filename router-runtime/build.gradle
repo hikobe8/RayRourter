@@ -49,7 +49,7 @@ afterEvaluate {
             maven(MavenPublication) {
                 groupId = 'com.github.hikobe8'
                 artifactId = 'router-runtime'
-                version = '0.1'
+                version = jitpack.pubVersion
                 from components.release
             }
         }

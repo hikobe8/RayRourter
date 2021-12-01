@@ -2,22 +2,26 @@ package com.ray.router.processor;
 
 import com.google.auto.service.AutoService;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.ray.router.annotations.Autowired;
 import com.ray.router.annotations.Destination;
 
-import java.io.BufferedOutputStream;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.Writer;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.annotation.processing.AbstractProcessor;
 import javax.annotation.processing.Processor;
 import javax.annotation.processing.RoundEnvironment;
+import javax.annotation.processing.SupportedAnnotationTypes;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.TypeElement;
@@ -41,6 +45,8 @@ public class DestinationProcessor extends AbstractProcessor {
             //避免多次调用
             return false;
         }
+        generateAutowiredClass(roundEnvironment);
+
         Set<? extends Element> allDestinationElements =
                 roundEnvironment.getElementsAnnotatedWith(Destination.class);
         if (allDestinationElements.size() < 1) {
@@ -130,12 +136,45 @@ public class DestinationProcessor extends AbstractProcessor {
         return false;
     }
 
+    private void generateAutowiredClass(RoundEnvironment roundEnvironment) {
+        Set<? extends Element> allAutowiredElements =
+                roundEnvironment.getElementsAnnotatedWith(Autowired.class);
+        //类 - 被注解的成员变量
+        Map<TypeElement, List<Autowired>> classFieldMap = new HashMap<>();
+        for (Element autowiredElement : allAutowiredElements) {
+            TypeElement enclosingElement = (TypeElement) autowiredElement.getEnclosingElement();
+            System.out.println("autowired class : " + enclosingElement);
+            Autowired autowiredElementAnnotation = autowiredElement.getAnnotation(Autowired.class);
+            List<Autowired> autowiredList;
+            if (classFieldMap.containsKey(enclosingElement)) {
+                autowiredList = classFieldMap.get(enclosingElement);
+                if (autowiredList == null) {
+                    autowiredList = new ArrayList<>();
+                } else {
+                    classFieldMap.put(enclosingElement, autowiredList);
+                }
+            } else {
+                autowiredList = new ArrayList<>();
+                classFieldMap.put(enclosingElement, autowiredList);
+            }
+            autowiredList.add(autowiredElementAnnotation);
+        }
+        for (TypeElement typeElement : classFieldMap.keySet()) {
+            System.out.println("test class  ------------ " + typeElement);
+            System.out.println("test class fields ------ " + classFieldMap.get(typeElement));
+
+        }
+    }
+
     /**
      * @return 当前注解处理器支持的注解类型
      */
     @Override
     public Set<String> getSupportedAnnotationTypes() {
-        return Collections.singleton(Destination.class.getCanonicalName());
+        Set<String> sat = new HashSet<>();
+        sat.add(Destination.class.getCanonicalName());
+        sat.add(Autowired.class.getCanonicalName());
+        return sat;
     }
 
     @Override
