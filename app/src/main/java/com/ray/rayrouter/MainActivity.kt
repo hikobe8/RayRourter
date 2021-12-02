@@ -3,6 +3,7 @@ package com.ray.rayrouter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.ray.biz_reading.MyParcel
 import com.ray.router.annotations.Destination
 import com.ray.router_runtime.RayRouter
 
@@ -17,10 +18,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun clickTest(view: View) {
-        RayRouter.go(this, "router://test?msg=测试页面")
+        RayRouter.build("router://test")
+            .putExtra("argInt", 100)
+            .putExtra("argStr", "clickTest")
+            .navigation(this)
     }
 
     fun clickRead(view: View) {
-        RayRouter.go(this, "router://reading")
+        RayRouter.build("router://reading")
+            .putExtra("argObj", MyParcel("reading page opened!"))
+            .navigation(this)
     }
 }

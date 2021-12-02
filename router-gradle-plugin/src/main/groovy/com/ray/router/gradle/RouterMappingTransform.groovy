@@ -60,7 +60,7 @@ class RouterMappingTransform extends Transform {
                 collector.collectJar(dirInput.file)
             }
         }
-        println("${getName()} RouterMappingClasses = ${collector.routerMappings}")
+        println("${getName()} RouterMappingClasses = ${collector.routerMappingClassNames}")
         File mappingJarFile = transformInvocation.outputProvider.getContentLocation(
                 "router_mapping",
                 getOutputTypes(),
@@ -78,7 +78,7 @@ class RouterMappingTransform extends Transform {
         JarOutputStream jos = new JarOutputStream(fos)
         ZipEntry zipEntry = new ZipEntry(RouterMappingBytecodeBuilder.CLASS_NAME + ".class")
         jos.putNextEntry(zipEntry)
-        jos.write(RouterMappingBytecodeBuilder.get(collector.routerMappings))
+        jos.write(RouterMappingBytecodeBuilder.get(collector.routerMappingClassNames))
         jos.closeEntry()
         jos.close()
         fos.close()

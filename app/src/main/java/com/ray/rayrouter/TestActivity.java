@@ -8,6 +8,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.ray.router.annotations.Destination;
 import com.ray.router.annotations.Autowired;
+import com.ray.router_runtime.RayRouter;
+
+import kotlin.jvm.JvmField;
 
 
 @Destination(
@@ -25,9 +28,9 @@ public class TestActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        RayRouter.INSTANCE.inject(this);
         setContentView(R.layout.activity_test);
-        String msg = getIntent().getExtras().getString("msg");
         TextView text = findViewById(R.id.text);
-        text.setText("msg = " + msg);
+        text.setText(String.format("argStr = %s argInt = %d", argStr, argInt));
     }
 }

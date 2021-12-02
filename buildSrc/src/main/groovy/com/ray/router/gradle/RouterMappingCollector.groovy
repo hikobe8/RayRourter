@@ -5,7 +5,7 @@ import java.util.jar.JarFile
 
 class RouterMappingCollector {
 
-    Set<String> routerMappings = new HashSet<>()
+    Set<String> routerMappingClassNames = new HashSet<>()
 
     static final String PACKAGE_NAME = "com/ray/rayrouter/mapping/"
     static final String CLASS_NAME_PREFIX = "RouterMapping_"
@@ -23,7 +23,7 @@ class RouterMappingCollector {
                     && classFile.name.startsWith(CLASS_NAME_PREFIX)
                     && classFile.name.endsWith(CLASS_FILE_SUFFIX)) {
                 String className = classFile.name.replace(CLASS_FILE_SUFFIX, "")
-                routerMappings.add(className)
+                routerMappingClassNames.add(className)
             }
         }
     }
@@ -41,7 +41,7 @@ class RouterMappingCollector {
                     && entryName.contains(CLASS_FILE_SUFFIX)) {
                 String className = entryName.replace(PACKAGE_NAME, "")
                         .replace(CLASS_FILE_SUFFIX, "")
-                routerMappings.add(className)
+                routerMappingClassNames.add(className)
             }
         }
     }

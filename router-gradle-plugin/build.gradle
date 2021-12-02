@@ -1,5 +1,4 @@
 apply plugin: 'groovy'
-apply plugin: 'maven-publish'
 
 repositories {
     jcenter()
@@ -11,22 +10,21 @@ dependencies {
     implementation localGroovy()
     implementation 'com.android.tools.build:gradle:4.1.1'
 }
+apply from: '../jitpack.gradle'
+apply plugin: 'maven-publish'
 afterEvaluate {
     publishing {
         publications {
             maven(MavenPublication) {
                 groupId = 'com.github.hikobe8'
                 artifactId = 'router-gradle-plugin'
-                version = versions.versionCode
+                version = jitpack.pubVersion
                 from components.java
             }
         }
     }
 }
 
-//本地发布
-//apply plugin: 'maven'
-//
 //uploadArchives {
 //    repositories {
 //        mavenDeployer {

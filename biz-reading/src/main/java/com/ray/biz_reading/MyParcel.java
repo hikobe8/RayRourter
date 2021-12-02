@@ -5,10 +5,24 @@ import android.os.Parcelable;
 
 public class MyParcel implements Parcelable {
 
-    public MyParcel() {
+    String msg;
+
+    public MyParcel(String msg) {
+        this.msg = msg;
     }
 
     protected MyParcel(Parcel in) {
+        msg = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(msg);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
     public static final Creator<MyParcel> CREATOR = new Creator<MyParcel>() {
@@ -22,13 +36,4 @@ public class MyParcel implements Parcelable {
             return new MyParcel[size];
         }
     };
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-    }
 }
