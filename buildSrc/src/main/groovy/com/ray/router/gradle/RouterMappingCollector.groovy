@@ -7,7 +7,7 @@ class RouterMappingCollector {
 
     Set<String> routerMappingClassNames = new HashSet<>()
 
-    static final String PACKAGE_NAME = "com/ray/rayrouter/mapping/"
+    static final String PACKAGE_NAME = "com" + File.separator + "ray" + File.separator + "rayrouter" + File.separator + "mapping" + File.separator
     static final String CLASS_NAME_PREFIX = "RouterMapping_"
     static final String CLASS_FILE_SUFFIX = ".class"
 
@@ -19,6 +19,7 @@ class RouterMappingCollector {
                 collect(it)
             }
         } else {
+            println(classFile.absolutePath)
             if (classFile.absolutePath.contains(PACKAGE_NAME)
                     && classFile.name.startsWith(CLASS_NAME_PREFIX)
                     && classFile.name.endsWith(CLASS_FILE_SUFFIX)) {
