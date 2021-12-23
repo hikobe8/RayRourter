@@ -1,6 +1,8 @@
 
 ## 配置工程
 
+**latest_version** [![](https://jitpack.io/v/hikobe8/RayRourter.svg)](https://jitpack.io/#hikobe8/RayRourter)
+
 1. 在工程目录的build.grale添加jitpack仓库
     ```
     buildscript {
@@ -23,7 +25,7 @@
     buildscript {
         dependencies {
             ...
-            classpath "com.github.hikobe8.RayRourter:router-gradle-plugin:0.2"
+            classpath "com.github.hikobe8.RayRourter:router-gradle-plugin:{latest_version}"
         }
     }
     ```
@@ -33,11 +35,11 @@
     dependencies {
         ...
         //添加注解依赖库
-        implementation 'com.github.hikobe8.RayRourter:router-annotations:0.2'
+        implementation 'com.github.hikobe8.RayRourter:router-annotations:{latest_version}'
         //添加router运行时依赖
-        implementation 'com.github.hikobe8.RayRourter:router-processor:0.2'
+        implementation 'com.github.hikobe8.RayRourter:router-processor:{latest_version}'
         //添加注解处理器
-        kapt 'com.github.hikobe8.RayRourter:router-annotations:0.2'
+        kapt 'com.github.hikobe8.RayRourter:router-annotations:{latest_version}'
     }
     ```
 
