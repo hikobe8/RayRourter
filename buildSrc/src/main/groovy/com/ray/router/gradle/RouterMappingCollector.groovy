@@ -5,9 +5,14 @@ import java.util.jar.JarFile
 
 class RouterMappingCollector {
 
+    String PACKAGE_NAME
+
+    {
+        PACKAGE_NAME = "com" + File.separator + "ray" + File.separator + "rayrouter" + File.separator + "mapping" + File.separator
+    }
+
     Set<String> routerMappingClassNames = new HashSet<>()
 
-    static final String PACKAGE_NAME = "com" + File.separator + "ray" + File.separator + "rayrouter" + File.separator + "mapping" + File.separator
     static final String CLASS_NAME_PREFIX = "RouterMapping_"
     static final String CLASS_FILE_SUFFIX = ".class"
 
